@@ -15,7 +15,7 @@ export default makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#0ed5bc",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -23,6 +23,7 @@ export default makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#0ed5bc",
   },
   googleButton: {
     marginBottom: theme.spacing(2),
