@@ -1,5 +1,13 @@
 let seedPosts = [
   {
+    caption: "How wonderful city",
+    artist: "everglow",
+    member: "Sihyeon",
+    selectedFile: "https://i.imgur.com/BQXbzxE.jpg",
+    likeCount: 3000,
+    createdAt: "2022-07-10T19:03:00.000+08:00",
+  },
+  {
     caption: "초 근접샷😛",
     artist: "everglow",
     member: "E:U",

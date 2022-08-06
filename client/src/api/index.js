@@ -1,6 +1,19 @@
 import axios from "axios";
 
-const url = "http://localhost:5001/posts";
+const API = axios.create({ baseURL: "http://localhost:5001" });
 
-export const fetchPosts = () => axios.post(url);
-export const likePost = (id) => axios.patch(`${url}/${id}/likePost`);
+API.interceptors.request.use((req) => {
+  if (localStorage.getItem("profile")) {
+    req.headers.Authorization = `Bearer ${
+      JSON.parse(localStorage.getItem("profile")).token
+    }`;
+  }
+
+  return req;
+});
+
+export const fetchPosts = () => API.post("/posts");
+export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
+
+export const signIn = (formData) => API.post("/users/signin", formData);
+export const signUp = (formData) => API.post("/users/signup", formData);

@@ -25,12 +25,12 @@ export const signin = async (req, res) => {
       email: user.email,
     };
 
-    const access = jwt.sign(payload, process.env.ACCESS_SECRET, {
+    const token = jwt.sign(payload, process.env.ACCESS_SECRET, {
       expiresIn: "20m",
       jwtid: uuidv4(),
     });
 
-    res.status(200).json({ result: user, access });
+    res.status(200).json({ result: user, token });
   } catch (err) {
     res.status(500).json({ message: "Something went wrong" });
   }
@@ -56,8 +56,19 @@ export const signup = async (req, res) => {
       nickname,
     });
 
+    const payload = {
+      id: result._id,
+      email: result.email,
+    };
+
+    const token = jwt.sign(payload, process.env.ACCESS_SECRET, {
+      expiresIn: "20m",
+    });
+
     console.log("created user: ", result);
-    res.status(201).json({ status: "ok", message: "user created", result });
+    res
+      .status(201)
+      .json({ status: "ok", message: "user created", result, token });
   } catch (error) {
     res.status(500).json({ status: "error", message: "Something went wrong" });
 

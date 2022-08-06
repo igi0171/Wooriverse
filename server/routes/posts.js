@@ -5,7 +5,7 @@ import { getPosts, seedPosts, likePost } from "../controllers/posts.js";
 import auth from "../middleware/auth.js";
 const router = express.Router();
 
-router.post("/", auth, getPosts);
+router.post("/", getPosts);
 router.get("/", seedPosts);
 router.patch("/:id/likePost", auth, likePost);
 
