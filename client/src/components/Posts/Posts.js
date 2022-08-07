@@ -6,15 +6,12 @@ import Post from "./Post/Post";
 import useStyles from "./styles";
 
 const Posts = ({ setCurrentId }) => {
-  const posts = useSelector((state) => state.posts);
+  const { posts, isLoading } = useSelector((state) => state.posts);
   const classes = useStyles();
 
-  posts.sort(function (a, b) {
-    return new Date(b.createdAt) - new Date(a.createdAt);
-  });
-  console.log(posts);
+  if (!posts.length && !isLoading) return "No posts";
 
-  return !posts.length ? (
+  return isLoading ? (
     <CircularProgress />
   ) : (
     <Grid

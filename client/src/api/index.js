@@ -12,8 +12,11 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
+export const fetchPost = (id) => API.get(`/posts/${id}`);
 export const fetchPosts = () => API.post("/posts");
 export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
+export const comment = (value, id) =>
+  API.put(`/posts/${id}/commentPost`, { value });
 
 export const signIn = (formData) => API.post("/users/signin", formData);
-export const signUp = (formData) => API.post("/users/signup", formData);
+export const signUp = (formData) => API.put("/users/signup", formData);

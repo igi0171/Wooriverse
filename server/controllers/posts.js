@@ -6,22 +6,10 @@ import seed from "../models/seedPosts.js";
 
 const router = express.Router();
 
-export const getPosts = async (req, res) => {
-  try {
-    const postContent = await PostContent.find();
-
-    res.status(200).json(postContent);
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-  }
-};
-
 export const seedPosts = async (req, res) => {
-  // await seed.remove({});
+  await PostContent.deleteMany();
 
   seed.forEach(async (post) => {
-    await PostContent.deleteMany();
-
     const createdPost = await PostContent.create({
       caption: post.caption,
       artist: post.artist,
@@ -33,6 +21,28 @@ export const seedPosts = async (req, res) => {
     console.log(createdPost);
   });
   res.json({ status: "ok", message: "seeding successful" });
+};
+
+export const getPosts = async (req, res) => {
+  try {
+    const postContent = await PostContent.find().sort({ createdAt: -1 });
+
+    res.status(200).json({ data: postContent });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+export const getPost = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const post = await PostContent.findById(id);
+
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
 };
 
 export const likePost = async (req, res) => {
@@ -60,6 +70,21 @@ export const likePost = async (req, res) => {
   });
 
   res.status(200).json(updatedPost);
+};
+
+export const commentPost = async (req, res) => {
+  const { id } = req.params;
+  const { value } = req.body;
+
+  const post = await PostContent.findById(id);
+
+  post.comments.push(value);
+
+  const updatedPost = await PostContent.findByIdAndUpdate(id, post, {
+    new: true,
+  });
+
+  res.json(updatedPost);
 };
 
 export default router;
