@@ -20,3 +20,5 @@ export const comment = (value, id) =>
 
 export const signIn = (formData) => API.post("/users/signin", formData);
 export const signUp = (formData) => API.put("/users/signup", formData);
+
+export const fetchArtists = () => API.get("/artists");

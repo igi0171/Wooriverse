@@ -6,6 +6,7 @@ import PostDetails from "./components/PostDetails/PostDetails";
 import Home from "./components/Home/Home";
 import NavBar from "./components/NavBar/NavBar";
 import Auth from "./components/Auth/Auth";
+import Landing from "./components/Landing/Landing";
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -23,6 +24,7 @@ const App = () => {
             exact
             component={() => (!user ? <Auth /> : <Redirect to="/posts" />)}
           />
+          <Route path="/landing" exact component={Landing} />
         </Switch>
       </Container>
     </BrowserRouter>

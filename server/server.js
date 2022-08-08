@@ -8,6 +8,7 @@ dotenv.config();
 
 import postRoutes from "./routes/posts.js";
 import userRoutes from "./routes/users.js";
+import artistRoutes from "./routes/artists.js";
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(cors());
 
 app.use("/posts", postRoutes);
 app.use("/users", userRoutes);
+app.use("/artists", artistRoutes);
 
 const PORT = process.env.PORT || 5001;
 
