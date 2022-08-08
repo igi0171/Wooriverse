@@ -61,7 +61,7 @@ const Post = ({ post, setCurrentId }) => {
   };
 
   const openPost = () => {
-    history.push(`/posts/${post._id}`);
+    history.push(`/${post.artist}/feed/${post._id}`);
   };
 
   return (

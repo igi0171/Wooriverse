@@ -15,16 +15,15 @@ const App = () => {
       <Container maxWidth="xl">
         <NavBar />
         <Switch>
-          <Route path="/" exact component={() => <Redirect to="/posts" />} />
-          <Route path="/posts" exact component={Home} />
-          <Route path="/posts/search" exact component={Home} />
-          <Route path="/posts/:id" exact component={PostDetails} />
+          <Route path="/" exact component={Landing} />
+          <Route path="/:artist/feed" exact component={Home} />
+          {/* <Route path="/posts/search" exact component={Home} /> */}
+          <Route path="/:artist/feed/:id" exact component={PostDetails} />
           <Route
             path="/auth"
             exact
-            component={() => (!user ? <Auth /> : <Redirect to="/posts" />)}
+            component={() => (!user ? <Auth /> : <Redirect to="/" />)}
           />
-          <Route path="/landing" exact component={Landing} />
         </Switch>
       </Container>
     </BrowserRouter>

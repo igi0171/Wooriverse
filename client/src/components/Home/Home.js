@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Grow, Grid } from "@material-ui/core";
 import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 
 import { getPosts } from "../../actions/posts";
 import Posts from "../Posts/Posts";
@@ -11,10 +12,11 @@ const Home = () => {
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
   const classes = useStyles();
+  const { artist } = useParams();
 
   useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
+    dispatch(getPosts(artist));
+  }, [currentId, dispatch, artist]);
 
   return (
     <Grow in>

@@ -24,8 +24,9 @@ export const seedPosts = async (req, res) => {
 };
 
 export const getPosts = async (req, res) => {
+  const { artist } = req.params;
   try {
-    const postContent = await PostContent.find().sort({ createdAt: -1 });
+    const postContent = await PostContent.find({ artist: artist }).sort({ createdAt: -1 });
 
     res.status(200).json({ data: postContent });
   } catch (error) {

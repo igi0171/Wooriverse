@@ -21,10 +21,10 @@ export const getPost = (id) => async (dispatch) => {
   }
 };
 
-export const getPosts = () => async (dispatch) => {
+export const getPosts = (artist) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const { data } = await api.fetchPosts();
+    const { data } = await api.fetchPosts(artist);
 
     dispatch({ type: FETCH_ALL, payload: data });
     dispatch({ type: END_LOADING });
