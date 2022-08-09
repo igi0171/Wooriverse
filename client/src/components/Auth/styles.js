@@ -8,24 +8,16 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     padding: theme.spacing(2),
   },
-  root: {
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-    },
-  },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: "#0ed5bc",
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(3),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
     backgroundColor: "#0ed5bc",
-  },
-  googleButton: {
-    marginBottom: theme.spacing(2),
   },
 }));

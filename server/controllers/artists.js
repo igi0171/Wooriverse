@@ -1,5 +1,4 @@
 import express from "express";
-import mongoose from "mongoose";
 
 import Artist from "../models/artist.js";
 import seed from "../models/seedArtists.js";

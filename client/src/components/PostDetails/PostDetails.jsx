@@ -7,21 +7,21 @@ import {
 } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import CommentSection from "./CommentSection";
 import { getPost } from "../../actions/posts";
 import useStyles from "./styles";
 
 const PostDetails = () => {
-  const { post, posts, isLoading } = useSelector((state) => state.posts);
+  const { post, isLoading } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
-  const history = useHistory();
   const classes = useStyles();
   const { id } = useParams();
 
   useEffect(() => {
     dispatch(getPost(id));
+    // eslint-disable-next-line
   }, [id]);
 
   if (!post) return null;
