@@ -43,7 +43,7 @@ const PostDetails = () => {
           </Typography>
           <Typography variant="h6">
             <Link
-              to={`/artists/${post.member}`}
+              to={`/${post.artist}/feed`}
               style={{ textDecoration: "none", color: "#0ed5bc" }}
             >
               {` ${post.member}`}

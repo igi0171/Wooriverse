@@ -7,7 +7,7 @@ import Post from "./Post/Post";
 const Posts = () => {
   const { posts, isLoading } = useSelector((state) => state.posts);
 
-  if (!posts.length && !isLoading) return "No posts";
+  if (!posts.length && !isLoading) return "Coming soon";
 
   return isLoading ? (
     <CircularProgress />
