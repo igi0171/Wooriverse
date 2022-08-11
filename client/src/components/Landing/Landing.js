@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Container, Grow, Grid } from "@material-ui/core";
+import { Container, Grow, Grid, Typography } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 
 import { getArtists } from "../../actions/artists";
@@ -14,9 +14,13 @@ const Landing = () => {
   useEffect(() => {
     dispatch(getArtists());
   }, [dispatch]);
+
   return (
     <Grow in>
       <Container maxWidth="xl">
+        <Typography variant="h5" className={classes.looking}>
+          Looking for new artists?
+        </Typography>
         <Grid
           container
           justifyContent="space-between"

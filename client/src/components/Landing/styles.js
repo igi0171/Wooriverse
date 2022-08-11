@@ -6,4 +6,8 @@ export default makeStyles((theme) => ({
       flexDirection: "column-reverse",
     },
   },
+  looking: {
+    fontWeight: "bold",
+    marginBottom: "25px",
+  },
 }));
