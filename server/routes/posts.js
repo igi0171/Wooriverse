@@ -11,9 +11,9 @@ import {
 import auth from "../middleware/auth.js";
 const router = express.Router();
 
-router.post("/:artist", getPosts);
+router.post("/:artist", auth, getPosts);
 router.get("/", seedPosts);
-router.get("/:id", getPost);
+router.get("/:id", auth, getPost);
 
 router.patch("/:id/likePost", auth, likePost);
 router.put("/:id/commentPost", auth, commentPost);

@@ -42,10 +42,19 @@ export const signup = async (req, res) => {
   try {
     const user = await User.findOne({ email });
 
-    if (user)
+    if (user) {
       return res
         .status(400)
         .json({ message: "An account with this email already exists" });
+    }
+
+    const user2 = await User.findOne({ nickname });
+
+    if (user2) {
+      return res
+        .status(400)
+        .json({ message: "An account with this nickname already exists" });
+    }
 
     const hash = await bcrypt.hash(password, 12);
 
