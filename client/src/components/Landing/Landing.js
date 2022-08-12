@@ -10,6 +10,7 @@ import useStyles from "./styles";
 const Landing = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   useEffect(() => {
     dispatch(getArtists());
@@ -19,7 +20,7 @@ const Landing = () => {
     <Grow in>
       <Container maxWidth="xl">
         <Typography variant="h5" className={classes.looking}>
-          Looking for new artists?
+          {user?.result ? "Artists" : "Looking for new artists?"}
         </Typography>
         <Grid
           container
