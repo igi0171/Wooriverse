@@ -5,12 +5,15 @@ An app that allows users to view, like and comment on their favorite artists' po
 ## Screenshots of the app
 
 Artists page
+
 ![This is an image](https://i.imgur.com/qn7MzQp.jpg)
 
 Posts by Artist page
+
 ![This is an image](https://i.imgur.com/QPIhMdB.png)
 
 Post page
+
 ![This is an image](https://i.imgur.com/q0Q13Be.png)
 
 ## Technologies used
