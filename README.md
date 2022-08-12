@@ -1,6 +1,6 @@
 # Wooriverse
 
-An app that allows users to view, like and comment on their favorite artists' posts.
+An app modelled after Weverse that allows users to view, like and comment on their favorite artists' posts.
 
 ## Screenshots of the app
 
@@ -60,3 +60,7 @@ Users are fans of the artist(s). They want to view, like and comment on their fa
 Adding an artist to user's artists instead before being able to view that artist's posts.
 
 Adding more media including videos to a post.
+
+## Credits
+
+Weverse
